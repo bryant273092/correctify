@@ -1,0 +1,24 @@
+.dropdownMenu {
+  @apply  fixed flex  flex-col mt-5 bg-primary rounded-xl origin-top-right outline-none z-40 w-auto;
+  
+  @screen lg {
+    @apply absolute top-10 border border-accents-1 shadow-lg w-56 h-auto;
+  }
+}
+
+.link {
+  @apply  block cursor-pointer px-6 py-3 mr-auto transition ease-in-out duration-150 leading-6 font-medium items-center;
+  text-transform: capitalize;
+}
+
+.link:hover {
+  @apply bg-accents-1;
+}
+
+.link.active {
+  @apply font-bold text-white;
+}
+
+.off {
+  @apply hidden;
+}
