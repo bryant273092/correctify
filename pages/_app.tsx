@@ -9,11 +9,10 @@ const Noop: FC = ({ children }) => <>{children}</>
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop
   return (<ThemeProvider>
-    <Layout pageProps={pageProps}>
-      <Component {...pageProps} />
-    </Layout>
-
-  </ThemeProvider>)
+            <Layout pageProps={pageProps}>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>)
 
 }
 

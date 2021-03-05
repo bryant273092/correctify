@@ -27,7 +27,7 @@ module.exports = {
         // => @media (min-width: 1280px) { ... }
       },
       backgroundImage: theme => ({
-        'space': "url('/space-bg.webp')",
+        'login': "url('/bg-image.webp')",
       }),
       maxWidth: {
         '8xl': '1080px',
@@ -60,6 +60,7 @@ module.exports = {
         red: 'var(--red)',
         purple: 'var(--purple)',
         background: 'var(--background)',
+        tint: 'rgb(0, 0, 0, 0.55)'
       },
       textColor: {
         base: 'var(--text-base)',
