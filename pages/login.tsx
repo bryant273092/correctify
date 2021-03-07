@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { setUserTokens } from '@utils/cookieManagment'
-
+import { useRouter } from 'next/router'
 interface ResponseProps {
     oauth_token: string, 
     oauth_token_secret: string,
@@ -12,9 +12,12 @@ interface ResponseProps {
 }
 
 export const Login = () => {
-    const registerUser = async (response: any) => {
+    const router = useRouter()
+    const handleResponse = async (response: any) => {
         const token = response.headers.get('x-auth-token')
         response.json().then((response: ResponseProps) => { setUserTokens(response) })
+        router.push('/')
+        
     }
     const handleFailure = () => {
         console.log('failed')
@@ -31,9 +34,9 @@ export const Login = () => {
                         className="bg-primary rounded text-xl font-bold text-center text-white p-4 mt-10 hover:bg-white hover:bg-primary"
                         loginUrl="https://correctify-backend.herokuapp.com/api/v1/auth/twitter"
                         onFailure={() => handleFailure()}
-                        onSuccess={(response) => registerUser(response)}
+                        onSuccess={(response) => handleResponse(response)}
                         requestTokenUrl="https://correctify-backend.herokuapp.com/api/v1/auth/twitter/reverse"
-                    > Sign Up With Twitter <FontAwesomeIcon icon={faTwitter} />
+                    > Login With Twitter <FontAwesomeIcon icon={faTwitter} />
                     </TwitterLogin>
                     <a className="text-primary shadow-sm mt-5 font-bold text-center text-2xl">Learn More <FontAwesomeIcon icon={faChevronRight} /></a>
                 </div>

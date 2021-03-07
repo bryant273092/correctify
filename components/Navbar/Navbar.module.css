@@ -1,5 +1,5 @@
 .root {
-  @apply fixed top-0 z-40 m-auto transition-all w-screen duration-150;
+  @apply fixed bg-secondary top-0 z-40 m-auto transition-all w-screen duration-150 border-b border-accents-6;
 
 }
 
@@ -27,3 +27,4 @@
   @apply relative flex h-16 flex-row justify-between items-center m-auto;
 
 }
+

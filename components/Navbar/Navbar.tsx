@@ -8,7 +8,6 @@ import DropdownMenu from './DropdownMenu'
 
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
-
   useEffect(() => {
     const handleScroll = throttle(() => {
       const offset = 0
@@ -56,7 +55,7 @@ const Navbar: FC = () => {
           </div>
         </Container>
       </div>
-
+      <div className={'h-16'} />
     </div>
   )
 }

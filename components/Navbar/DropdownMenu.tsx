@@ -71,7 +71,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false, hasScrolled }) => {
             display ?
               <Cross color={'#00a2f9'}/>
               :
-              <Hamburger color={'white'} />
+              <Hamburger color={'#00a2f9'} />
           }
 
         </button>

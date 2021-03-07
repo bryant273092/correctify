@@ -6,7 +6,7 @@ const Logo: FC<Props> = ({ icon = true }) => {
       return (
             <div >
             {icon ?
-                  <img className="h-14 w-auto" src="/correctify-icon.png"></img>
+                  <img className="h-10 w-auto" src="/correctify-icon.png"></img>
                   :
                   <img src="/correctify-logo.png"></img>}
             </div>

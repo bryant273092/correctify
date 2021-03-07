@@ -1,16 +1,25 @@
 import Cookies from 'js-cookie'
 
-interface tokenProps {
+export interface tokenProps {
     oauth_token: string, 
     oauth_token_secret: string,
     user_id: string
 }
 
-export const setUserTokens = (tokens: tokenProps) => {
-    console.log("tokens: ", tokens)
-    Cookies.set('oauthTokens', tokens)
+interface contextProps{
+    req: any,
+    res: any
 }
 
-export const getUserTokens = () => {
-    return Cookies.get('oauthTokens')
+export const setUserTokens = (tokens: tokenProps) => {
+    Cookies.set('oauthTokens', tokens)
+    
+}
+
+export const getUserTokens = (context: contextProps) => {
+    const cookieString = context.req.cookies.oauthTokens
+    if (cookieString){
+        return JSON.parse(cookieString)
+    }
+    return undefined
 }

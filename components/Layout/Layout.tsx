@@ -6,7 +6,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { useUI } from '@components/ui/context'
 import  Navbar from '@components/Navbar'
 import { Sidebar, Button, Modal, LoadingDots } from '@components/ui'
-
+import BottomBar from '@components/BottomBar'
 
 
 
@@ -27,24 +27,13 @@ const Layout: FC<Props> = ({ children, pageProps }) => {
   } = useUI()
   // const { acceptedCookies, onAcceptCookies } = useAcceptCookies()
   const { locale = 'en-US' } = useRouter()
-  const [isLoading, setisLoading] = useState(true)
-  useEffect(() => {
-    const timeoutHandle = () => {
-
-      setTimeout(() => {
-        setisLoading(false)
-      }, 2000)
-      return setTimeout
-    }
-    timeoutHandle()
-    clearTimeout()
-
-  }, [isLoading, setisLoading])
+  const [isLoading, setisLoading] = useState(false)
   return (
       <div className={cn(s.root)}>
         <Navbar />
         <main className="fit">{children}</main>
         {/* <Footer pages={pageProps.pages} /> */}
+        <BottomBar />
       </div>
   )
 }
