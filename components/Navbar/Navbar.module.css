@@ -1,6 +1,7 @@
 .root {
-  @apply fixed bg-secondary top-0 z-40 m-auto transition-all w-screen duration-150 border-b border-accents-6;
-
+  @apply fixed bg-secondary top-0 z-40 m-auto transition-all w-screen duration-150;
+  border-bottom: solid .1rem #868e96;
+  
 }
 
 .link {
@@ -16,8 +17,8 @@
 }
 
 .logo {
-  @apply cursor-pointer transform duration-100 ease-in-out;
-
+  @apply cursor-pointer transform duration-100 ease-in-out flex m-auto justify-center flex-col;
+  height: 64px;
   &:hover {
     @apply shadow-md;
     transform: scale(1.05);

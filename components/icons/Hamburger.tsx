@@ -6,8 +6,8 @@ interface Props {
 const Hamburger: FC<Props>  = ({ color }) => {
   return (
     <svg
-      width="30"
-      height="32"
+      width='1.3em'
+      height="auto"
       aria-hidden="true"
       focusable="false"
       data-prefix="fas"

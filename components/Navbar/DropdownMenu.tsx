@@ -8,6 +8,8 @@ import { Moon, Sun } from '@components/icons'
 import { useUI } from '@components/ui/context'
 import ClickOutside from '@lib/click-outside'
 import { Hamburger, Cross } from '@components/icons'
+import { useSelector } from 'react-redux'
+import type { State } from '../../store'
 
 import {
   disableBodyScroll,
@@ -46,6 +48,8 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false, hasScrolled }) => {
   const [display, setDisplay] = useState(false)
   const { closeSidebarIfPresent } = useUI()
   const ref = useRef() as React.MutableRefObject<HTMLUListElement>
+  const state = useSelector((state: State) => state)
+  console.log(state)
   useEffect(() => {
     if (ref.current) {
       if (display) {
@@ -61,7 +65,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false, hasScrolled }) => {
 
   return (
     <ClickOutside active={display} onClick={() => setDisplay(false)}>
-      <div className={"my-auto " + display ? 'z-10' : ''}>
+      <div className={" " + display ? 'z-10 flex flex-col items-center justify-center' : ''}>
         <button
 
           onClick={() => setDisplay(!display)}
@@ -71,7 +75,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false, hasScrolled }) => {
             display ?
               <Cross color={'#00a2f9'}/>
               :
-              <Hamburger color={'#00a2f9'} />
+              <img src={state.userInfo.profile_image_url} className="rounded-full"></img>
           }
 
         </button>

@@ -12,7 +12,7 @@ import { LoadingDots } from '@components/ui'
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string
   className?: string
-  variant?: 'flat' | 'slim'
+  variant?: 'flat' | 'slim' | 'hollow'
   active?: boolean
   type?: 'submit' | 'reset' | 'button'
   Component?: string | JSXElementConstructor<any>
@@ -39,6 +39,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
   const rootClassName = cn(
     s.root,
     {
+      [s.hollow]: variant === 'hollow',
       [s.slim]: variant === 'slim',
       [s.loading]: loading,
       [s.disabled]: disabled,

@@ -5,10 +5,21 @@ import { Logo, Container } from '@components/ui'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
 import DropdownMenu from './DropdownMenu'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
+import type { State } from '../../store'
+interface Props {
+  pageName: string
+}
 
-const Navbar: FC = () => {
+
+const Navbar: FC<Props> = ({ pageName }) => {
   const [hasScrolled, setHasScrolled] = useState(false)
+  // const state = useSelector((state: State) => state)
+  // console.log(state)
   useEffect(() => {
+    
     const handleScroll = throttle(() => {
       const offset = 0
       const { scrollTop } = document.documentElement
@@ -28,11 +39,12 @@ const Navbar: FC = () => {
         <Container>
           <div className={s.subroot}>
 
-            <div className="flex items-center flex-1">
-              <div className='flex flex-1 lg:hidden '>
+            <div className="flex items-center flex-auto justify-center m-auto">
+              <div className='flex flex-1 items-center lg:hidden '>
                 <DropdownMenu hasScrolled={hasScrolled} />
+                <h1 className="text-white px-3 text-xl whitespace-nowrap  font-bold ">{pageName}</h1>
               </div>
-              <nav className={cn("hidden space-x-4 lg:flex justify-around flex-row w-full", { 'text-black': hasScrolled }, { 'text-white': !hasScrolled })}>
+              {/* <nav className={cn("hidden space-x-4 lg:flex justify-around flex-row w-full", { 'text-black': hasScrolled }, { 'text-white': !hasScrolled })}>
                 <Link href="/">
                   <a className={s.link}>Home</a>
                 </Link>
@@ -42,16 +54,19 @@ const Navbar: FC = () => {
                 <Link href="/about">
                   <a className={s.link}>About</a>
                 </Link>
-              </nav>
+              </nav> */}
             </div>
-            <div className="flex flex-1 justify-center my-2">
+            {/* <div className="flex flex-1 justify-center ">
               <Link href="/">
                 <a className={s.logo} aria-label="Logo">
                   <Logo icon />
+                  <img className="h-1/2" src={'/correctify-white.png'}></img>
                 </a>
               </Link>
+            </div> */}
+            <div className="flex flex-1 h-full justify-end items-end">
+              <FontAwesomeIcon className="h-full color-red" size={'lg'} icon={faCog} />
             </div>
-            <div className="flex flex-1"></div>
           </div>
         </Container>
       </div>

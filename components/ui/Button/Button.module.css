@@ -1,9 +1,9 @@
 .root {
-  @apply bg-primary text-accents-1 cursor-pointer inline-flex px-10 rounded-lg leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center uppercase py-4 items-center;
+  @apply bg-transparent text-primary border-primary border cursor-pointer inline-flex px-10 rounded-lg leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center uppercase py-4 items-center;
 }
 
 .root:hover {
-  @apply bg-white text-primary;
+  @apply bg-primary text-white;
 }
 
 .root:focus {
@@ -22,6 +22,9 @@
   @apply py-2 transform-none normal-case;
 }
 
+.hollow {
+  @apply bg-secondary border text-primary border-primary
+}
 .disabled,
 .disabled:hover {
   @apply text-accents-4 border-accents-2 bg-accents-1 cursor-not-allowed;

@@ -23,3 +23,7 @@ export const getUserTokens = (context: contextProps) => {
     }
     return undefined
 }
+
+export const userLogout = () => {
+    Cookies.remove('oauthTokens')
+}

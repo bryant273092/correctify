@@ -14,24 +14,15 @@ interface Props {
   pageProps: {
     pages?: any
     settings: object
+    pageName: string
   }
 }
 
 const Layout: FC<Props> = ({ children, pageProps }) => {
-  const {
-    displaySidebar,
-    displayModal,
-    closeSidebar,
-    closeModal,
-    modalView,
-  } = useUI()
-  // const { acceptedCookies, onAcceptCookies } = useAcceptCookies()
-  const { locale = 'en-US' } = useRouter()
-  const [isLoading, setisLoading] = useState(false)
   return (
       <div className={cn(s.root)}>
-        <Navbar />
-        <main className="fit">{children}</main>
+        <Navbar pageName={pageProps.pageName}/>
+        <main className="fit pb-16">{children}</main>
         {/* <Footer pages={pageProps.pages} /> */}
         <BottomBar />
       </div>

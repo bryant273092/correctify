@@ -1,0 +1,12 @@
+.tweetDiv {
+    @apply border-t flex flex-col border-accents-6 p-2 w-full;
+}
+.tweetText {
+    @apply text-white pl-1;
+}
+.userImage {
+    @apply rounded-full;
+}
+.userInfo {
+    @apply flex flex-row justify-between w-full pb-3;
+}
